@@ -1,3 +1,4 @@
+//Gets Computer random prompt 
 function getComputerChoice()
 {
    let computerSelection;
@@ -17,7 +18,7 @@ function getComputerChoice()
 
    return computerSelection
 }
-
+//Gets Player input
 function getPlayerChoice()
 {
     let playerSelection = prompt("Rock, Paper or Scissors?");
@@ -71,7 +72,7 @@ function compare(playerSelection, computerSelection)
         return 1
     }
 }
-
+//Self explanatory play function
 function play()
 {
     let victoryCounter = 0
