@@ -8,6 +8,9 @@
     font-family: 'Roboto';
     font-size: 5vw;
     padding: 3vw;
+    background-color: #303030;
+    color: #fff;
+    margin-bottom: 2vw;
 }
 
 .container{
@@ -40,4 +43,23 @@ button#Scissors{
     justify-content: center;
     text-align: center;
     font-size: 3vw;
+}
+
+button:hover{
+    animation: animate 2s linear ease-in-out;
+}
+
+@keyframes animate{
+    0%{
+        background-color: aliceblue;
+    }
+    25%{
+        background-color: lightgreen;
+    }
+    50%{
+        background-color: yellowgreen;
+    }
+    100%{
+        background-color: yellow;
+    }
 }
