@@ -1,4 +1,30 @@
 //Gets Computer random prompt 
+
+const rock = document.getElementById("#Rock");
+const paper = document.querySelector("#Paper");
+const scissors = document.querySelector("#Scissors");
+const elements = [{name: "rock"},{name:"paper"},{name:"scissors"}]
+
+rock.addEventListener("click", function handleClick(){
+    handleClick("ROCK")
+});
+paper.addEventListener("click", function handleClick(){
+    handleClick("PAPER")
+});
+
+scissors.addEventListener("click", function handleClick(){
+    handleClick("SCISSORS")
+});
+
+function handleClick(choice)
+{
+    return choice;
+}
+
+let playerSelection = choice;
+
+
+
 function getComputerChoice()
 {
    let computerSelection;
@@ -19,20 +45,20 @@ function getComputerChoice()
    return computerSelection
 }
 //Gets Player input
-function getPlayerChoice()
-{
-    let playerSelection = prompt("Rock, Paper or Scissors?");
-    playerSelection = playerSelection.toUpperCase()
-   if (playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS")
-   {
-    return playerSelection
-   }
-   else
-   {
-    console.log("Please enter a valid choice between Rock, Paper and Scissors.")
-    return getPlayerChoice()
-   }
-}
+// function getPlayerChoice()
+// {
+//     let playerSelection = prompt("Rock, Paper or Scissors?");
+//     playerSelection = playerSelection.toUpperCase()
+//    if (playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS")
+//    {
+//     return playerSelection
+//    }
+//    else
+//    {
+//     console.log("Please enter a valid choice between Rock, Paper and Scissors.")
+//     return getPlayerChoice()
+//    }
+// }
 
 function compare(playerSelection, computerSelection)
 {
