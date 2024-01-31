@@ -1,29 +1,34 @@
-//Gets Computer random prompt 
-
-const rock = document.getElementById("#Rock");
+const rock = document.querySelector("#Rock");
 const paper = document.querySelector("#Paper");
 const scissors = document.querySelector("#Scissors");
+const resultText = document.getElementById("resultText")
 const elements = [{name: "rock"},{name:"paper"},{name:"scissors"}]
+let playerSelection;
 
-rock.addEventListener("click", function handleClick(){
-    handleClick("ROCK")
+rock.addEventListener("click", function handleRockClick(){
+    playerSelection= handleClick("ROCK")
+    const computerSelection = getComputerChoice()
+    const result = compare(playerSelection, computerSelection);
+    handleResult(result);
 });
-paper.addEventListener("click", function handleClick(){
-    handleClick("PAPER")
+paper.addEventListener("click", function handlePaperClick(){
+    playerSelection= handleClick("PAPER")
+    const computerSelection = getComputerChoice()
+    const result = compare(playerSelection, computerSelection);
+    handleResult(result);
 });
 
-scissors.addEventListener("click", function handleClick(){
-    handleClick("SCISSORS")
+scissors.addEventListener("click", function handleScissorsClick(){
+    playerSelection= handleClick("SCISSORS")
+    const computerSelection = getComputerChoice()
+    const result = compare(playerSelection, computerSelection);
+    handleResult(result);
 });
 
 function handleClick(choice)
 {
     return choice;
 }
-
-let playerSelection = choice;
-
-
 
 function getComputerChoice()
 {
@@ -44,52 +49,44 @@ function getComputerChoice()
 
    return computerSelection
 }
-//Gets Player input
-// function getPlayerChoice()
-// {
-//     let playerSelection = prompt("Rock, Paper or Scissors?");
-//     playerSelection = playerSelection.toUpperCase()
-//    if (playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS")
-//    {
-//     return playerSelection
-//    }
-//    else
-//    {
-//     console.log("Please enter a valid choice between Rock, Paper and Scissors.")
-//     return getPlayerChoice()
-//    }
-// }
 
 function compare(playerSelection, computerSelection)
 {
     if (playerSelection === computerSelection)
     {
         console.log("It's a tie, please try again!")
-        return getPlayerChoice()
+        return 2
+        
     }
     else if (playerSelection === "ROCK" && computerSelection === "PAPER")
     {
         console.log("You lose!")
+        
         return 0
     }
     else if (playerSelection === "ROCK" && computerSelection === "SCISSORS")
     {
         console.log("You win!")
+        
         return 1
     }
     else if (playerSelection === "PAPER" && computerSelection === "SCISSORS")
     {
         console.log("You lose!")
+        
         return 0
     }
     else if (playerSelection === "PAPER" && computerSelection === "ROCK")
     {
         console.log("You win!")
+        
+        
         return 1
     }
     else if (playerSelection === "SCISSORS" && computerSelection === "ROCK")
     {
         console.log("You lose!")
+        
         return 0
     }
     else if (playerSelection === "SCISSORS" && computerSelection === "PAPER")
@@ -99,27 +96,16 @@ function compare(playerSelection, computerSelection)
     }
 }
 //Self explanatory play function
-function play()
+function handleResult(result)
 {
-    let victoryCounter = 0
-    for (a = 0 ; a<5 ; a++)
-    {
-     let computerChoice = getComputerChoice()
-     let playerChoice =  getPlayerChoice()
-     let result = compare(playerChoice, computerChoice)
-    
      if (result === 1)
      {
-        victoryCounter++
+        resultText.innerText = "You win!"
      }
-    }
-    if (victoryCounter > 2)
-    {
-        console.log("You won, with a score of ",victoryCounter, " wins.")
-
-    }
-    else
-    {
-        console.log("You lost, with a score of ",victoryCounter, "wins.")
-    }
+     else if (result === 2){
+        resultText.innerText = "It's a tie!"
+     }
+     else{
+        resultText.innerText = "You lose!"
+     }
 }
