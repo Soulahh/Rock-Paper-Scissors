@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+.game-text{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-size: 5vw;
+    padding: 3vw;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+
+button{
+    font-size: 2vw;
+    padding: 1vw;
+}
+
+button#Rock{
+    background-color: lightblue;
+}
+
+button#Paper{
+    background-color: lightcoral;
+}
+
+button#Scissors{
+    background-color: lightgreen;
+}
+
+#resultText{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 3vw;
+}
